@@ -28,7 +28,14 @@
     }
 
     function MyButton() {
-      return <button>Click me</button>;
+      return (
+        <button
+          className="button-85"
+          onClick={() => console.log("You clicked me!")}
+        >
+          Click me
+        </button>
+      );
     }
 
     function Clicks() {
