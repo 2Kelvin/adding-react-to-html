@@ -1,9 +1,14 @@
 function MyApp() {
+    const [clicked, setClicked] = React.useState(false);
+
+    if (clicked) {
+        setClicked(<Clicks />);
+    }
+
     return (
         <div className="mainContent">
             <Heading />
             <MyButton />
-            <Clicks />
         </div>
     );
 }
@@ -12,7 +17,7 @@ function MyButton() {
     return (
         <button
             className="button-85"
-            onClick={() => console.log("You clicked me!")}
+            onClick={() => setClicked(true)}
         >
             Click me
         </button>
@@ -20,7 +25,7 @@ function MyButton() {
 }
 
 function Clicks() {
-    return <p></p>;
+    return <p>You clicked me</p>;
 }
 
 function Heading() {
