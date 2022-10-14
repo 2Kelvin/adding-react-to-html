@@ -6,37 +6,65 @@ function MyApp() {
         clicked = _React$useState2[0],
         setClicked = _React$useState2[1];
 
+    var _React$useState3 = React.useState({}),
+        _React$useState4 = _slicedToArray(_React$useState3, 2),
+        bgColor = _React$useState4[0],
+        setBgColor = _React$useState4[1];
+
+    // change paragraph text on 1st buttonn click
+
+
+    function handleTextChange() {
+        setClicked("Congrats, you just learnt to use state!");
+    }
+
+    // change card color on 2nd button click
+    function handleCardColorChange() {
+        setBgColor(lightTheme);
+    }
+
+    var lightTheme = {
+        backgroundColor: "#fff",
+        color: "dodgerBlue"
+    };
+
     return React.createElement(
         "div",
-        { className: "mainContent" },
+        { className: "mainContent", style: bgColor },
         React.createElement(
-            "h1",
+            "h2",
             null,
             "React Button in HTML"
         ),
-        React.createElement(OneButton, { setClicked: setClicked }),
+        React.createElement(OneButton, {
+            handleClikFunParam: handleTextChange,
+            btnText: "Add Text"
+        }),
         React.createElement(
             "p",
             { className: "paragraph" },
             clicked
-        )
+        ),
+        React.createElement(OneButton, {
+            handleClikFunParam: handleCardColorChange,
+            btnText: "Change Card Color"
+        })
     );
 }
 
 // React components are JavaScript functions that return markup
 // React component names must always start with a capital letter
 function OneButton(_ref) {
-    var setClicked = _ref.setClicked;
+    var handleClikFunParam = _ref.handleClikFunParam,
+        btnText = _ref.btnText;
 
     return React.createElement(
         "button",
         {
             className: "button-85",
-            onClick: function onClick() {
-                return setClicked("Congrats, you just learnt to use state!");
-            }
+            onClick: handleClikFunParam
         },
-        "Click me"
+        btnText
     );
 }
 

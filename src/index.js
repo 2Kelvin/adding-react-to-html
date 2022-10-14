@@ -1,12 +1,34 @@
 function MyApp() {
     const [clicked, setClicked] = React.useState("");
+    const [bgColor, setBgColor] = React.useState({});
 
+    // change paragraph text on 1st buttonn click
+    function handleTextChange() {
+        setClicked("Congrats, you just learnt to use state!");
+    }
+
+    // change card color on 2nd button click
+    function handleCardColorChange() {
+        setBgColor(lightTheme);
+    }
+
+    const lightTheme = {
+        backgroundColor: "#fff",
+        color: "dodgerBlue"
+    };
 
     return (
-        <div className="mainContent">
-            <h1>React Button in HTML</h1>
-            <OneButton setClicked={setClicked} />
+        <div className="mainContent" style={bgColor}>
+            <h2>React Button in HTML</h2>
+            <OneButton
+                handleClikFunParam={handleTextChange}
+                btnText={"Add Text"}
+            />
             <p className="paragraph">{clicked}</p>
+            <OneButton
+                handleClikFunParam={handleCardColorChange}
+                btnText={"Change Card Color"}
+            />
         </div>
     );
 }
@@ -15,13 +37,13 @@ function MyApp() {
 
 // React components are JavaScript functions that return markup
 // React component names must always start with a capital letter
-function OneButton({ setClicked }) {
+function OneButton({ handleClikFunParam, btnText }) {
     return (
         <button
             className="button-85"
-            onClick={() => setClicked("Congrats, you just learnt to use state!")}
+            onClick={handleClikFunParam}
         >
-            Click me
+            {btnText}
         </button>
     );
 }
