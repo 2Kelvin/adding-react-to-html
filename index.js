@@ -25,17 +25,14 @@ function MyApp() {
         boxShadow: "rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px"
     };
 
-    // change the HTML body's background color
     function changeBodyBgColor() {
         setBodyBg("#efefef");
     }
 
-    // change paragraph text on 1st buttonn click
     function handleTextChange() {
         setClicked("Congrats, you just learnt useState()");
     }
 
-    // change card color on 2nd button click
     function handleCardColorChange() {
         setBgColor(lightTheme);
     }
