@@ -11,11 +11,28 @@ function MyApp() {
         bgColor = _React$useState4[0],
         setBgColor = _React$useState4[1];
 
+    var _React$useState5 = React.useState("#191C21"),
+        _React$useState6 = _slicedToArray(_React$useState5, 2),
+        bodyBg = _React$useState6[0],
+        setBodyBg = _React$useState6[1];
+
+    var htmlBody = document.querySelector("body");
+    htmlBody.style.backgroundColor = bodyBg;
+
+    var lightTheme = {
+        backgroundColor: "#fff",
+        color: "dodgerBlue",
+        boxShadow: "rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px"
+    };
+
+    // change the HTML body's background color
+    function changeBodyBgColor() {
+        setBodyBg("#efefef");
+    }
+
     // change paragraph text on 1st buttonn click
-
-
     function handleTextChange() {
-        setClicked("Congrats, you just learnt to use state!");
+        setClicked("Congrats, you just learnt useState()");
     }
 
     // change card color on 2nd button click
@@ -23,18 +40,13 @@ function MyApp() {
         setBgColor(lightTheme);
     }
 
-    var lightTheme = {
-        backgroundColor: "#fff",
-        color: "dodgerBlue"
-    };
-
     return React.createElement(
         "div",
         { className: "mainContent", style: bgColor },
         React.createElement(
-            "h2",
+            "h1",
             null,
-            "React Button in HTML"
+            "React Buttons"
         ),
         React.createElement(OneButton, {
             handleClikFunParam: handleTextChange,
@@ -48,12 +60,14 @@ function MyApp() {
         React.createElement(OneButton, {
             handleClikFunParam: handleCardColorChange,
             btnText: "Change Card Color"
+        }),
+        React.createElement(OneButton, {
+            handleClikFunParam: changeBodyBgColor,
+            btnText: "Change Body Background"
         })
     );
 }
 
-// React components are JavaScript functions that return markup
-// React component names must always start with a capital letter
 function OneButton(_ref) {
     var handleClikFunParam = _ref.handleClikFunParam,
         btnText = _ref.btnText;
@@ -72,6 +86,8 @@ var container = document.getElementById('root');
 var root = ReactDOM.createRoot(container);
 root.render(React.createElement(MyApp, null));
 
+// React components are JavaScript functions that return markup
+// React component names must always start with a capital letter
 // JSX lets you put markup into JavaScript
 // Curly braces let you “escape back” into JavaScript 
 // ...so that you can embed a variable & display it to the user thro JSX
