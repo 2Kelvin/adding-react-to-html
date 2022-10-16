@@ -27,7 +27,7 @@ function MyApp() {
     var lightTheme = {
         backgroundColor: "#fff",
         color: "dodgerBlue",
-        boxShadow: "rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px"
+        boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px"
     };
 
     function handleClickCount() {
@@ -35,7 +35,7 @@ function MyApp() {
     }
 
     function changeBodyBgColor() {
-        setBodyBg("#efefef");
+        setBodyBg("#afafaf");
     }
 
     function handleTextChange() {
@@ -70,8 +70,8 @@ function MyApp() {
         React.createElement(
             "p",
             { className: "paragraph" },
-            "You clicked the button above ",
-            clicks == 1 ? clicks + " time" : clicks + " times"
+            "You clicked the count clicks button ",
+            clicks == 1 ? "once" : clicks + " times"
         ),
         React.createElement(OneButton, {
             handleClikFunParam: handleCardColorChange,
