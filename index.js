@@ -16,6 +16,11 @@ function MyApp() {
         bodyBg = _React$useState6[0],
         setBodyBg = _React$useState6[1];
 
+    var _React$useState7 = React.useState(0),
+        _React$useState8 = _slicedToArray(_React$useState7, 2),
+        clicks = _React$useState8[0],
+        setClicks = _React$useState8[1];
+
     var htmlBody = document.querySelector("body");
     htmlBody.style.backgroundColor = bodyBg;
 
@@ -24,6 +29,10 @@ function MyApp() {
         color: "dodgerBlue",
         boxShadow: "rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px"
     };
+
+    function handleClickCount() {
+        setClicks(clicks + 1);
+    }
 
     function changeBodyBgColor() {
         setBodyBg("#efefef");
@@ -53,6 +62,16 @@ function MyApp() {
             "p",
             { className: "paragraph" },
             clicked
+        ),
+        React.createElement(OneButton, {
+            handleClikFunParam: handleClickCount,
+            btnText: "Count Clicks"
+        }),
+        React.createElement(
+            "p",
+            { className: "paragraph" },
+            "You clicked the button above ",
+            clicks == 1 ? clicks + " time" : clicks + " times"
         ),
         React.createElement(OneButton, {
             handleClikFunParam: handleCardColorChange,

@@ -2,6 +2,7 @@ function MyApp() {
     const [clicked, setClicked] = React.useState("");
     const [bgColor, setBgColor] = React.useState({});
     const [bodyBg, setBodyBg] = React.useState("#191C21");
+    const [clicks, setClicks] = React.useState(0);
 
     const htmlBody = document.querySelector("body");
     htmlBody.style.backgroundColor = bodyBg;
@@ -11,6 +12,10 @@ function MyApp() {
         color: "dodgerBlue",
         boxShadow: "rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px"
     };
+
+    function handleClickCount() {
+        setClicks(clicks + 1);
+    }
 
     function changeBodyBgColor() {
         setBodyBg("#efefef");
@@ -32,6 +37,14 @@ function MyApp() {
                 btnText={"Add Text"}
             />
             <p className="paragraph">{clicked}</p>
+
+            <OneButton
+                handleClikFunParam={handleClickCount}
+                btnText={"Count Clicks"}
+            />
+            <p className="paragraph">You clicked the button above {clicks == 1 ? `${clicks} time` : `${clicks} times`}</p>
+
+
             <OneButton
                 handleClikFunParam={handleCardColorChange}
                 btnText={"Change Card Color"}
